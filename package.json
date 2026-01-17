@@ -1,0 +1,27 @@
+{
+  "name": "ether-heirloom",
+  "version": "1.0.0",
+  "description": "EtherHeirloom Smart Contract",
+  "main": "index.js",
+  "scripts": {
+    "test": "forge test",
+    "build": "forge build",
+    "clean": "forge clean",
+    "lint": "solhint 'contracts/**/*.sol'",
+    "format": "forge fmt",
+    "analyze:aderyn": "aderyn --src=contracts/",
+    "analyze:slither": "slither contracts/EtherHeirloom.sol --solc-args \" --solc-remaps \"@openzeppelin/=$(pwd)/node_modules/@openzeppelin/\" --json slither_results.json"
+  },
+  "devDependencies": {
+    "@cyfrin/aderyn": "^0.6.7",
+    "@openzeppelin/contracts": "^5.0.0",
+    "eth-scribble": "^0.7.10"
+  },
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "smart-contracts"
+  ],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,33 @@
+# Artifacts
+/artifacts/
+/out/
+/cache/
+
+# Dependencies
+/node_modules/
+/lib/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+.vscode/
+*.swp
+*.swo
+*~
+
+# IDE
+.idea/
+*.iml
+
+# Build outputs
+*.o
+*.so
+*.a
+*.dylib
+
+# Test outputs
+coverage/
