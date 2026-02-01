@@ -83,6 +83,12 @@ slither contracts/EtherHeirloom.sol \
 aderyn --src=contracts/
 ```
 
+#### Mythril
+
+https://github.com/ConsenSysDiligence/mythril
+
+myth analyze -c {byte code from cat artifacts/foundry/EtherHeirloom.sol/EtherHeirloom.json}
+
 ### Code Formatting
 
 ```bash

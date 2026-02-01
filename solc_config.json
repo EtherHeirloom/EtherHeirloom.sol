@@ -1,0 +1,22 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/EtherHeirloom.sol": {
+      "urls": ["contracts/EtherHeirloom.sol"]
+    }
+  },
+  "settings": {
+    "remappings": [
+      "@openzeppelin/=node_modules/@openzeppelin/"
+    ],
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": ["evm.bytecode", "evm.deployedBytecode", "abi"]
+      }
+    }
+  }
+}

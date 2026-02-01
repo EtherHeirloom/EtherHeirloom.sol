@@ -7,10 +7,10 @@
     "test": "forge test",
     "build": "forge build",
     "clean": "forge clean",
-    "lint": "solhint 'contracts/**/*.sol'",
-    "format": "forge fmt",
-    "analyze:aderyn": "aderyn --src=contracts/",
-    "analyze:slither": "rm slither_results.json && slither contracts/EtherHeirloom.sol --solc-remaps @openzeppelin/=$(pwd)/node_modules/@openzeppelin/ --json slither_results.json"
+    "contract:audit:aderyn:slither": "aderyn --src=contracts/ && rm slither_results.json && slither contracts/EtherHeirloom.sol --solc-remaps @openzeppelin/=$(pwd)/node_modules/@openzeppelin/ --json slither_results.json",
+    "contract:audit:solhint": "solhint 'contracts/**/*.sol'",
+    "contract:audit:scribble": "scribble contracts/EtherHeirloom.sol",
+    "format": "forge fmt"
   },
   "devDependencies": {
     "@cyfrin/aderyn": "^0.6.7",
