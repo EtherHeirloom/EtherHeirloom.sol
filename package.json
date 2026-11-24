@@ -1,0 +1,14 @@
+{
+  "name": "etherheirloom-contracts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EtherHeirloom smart contract",
+  "scripts": {
+    "build": "forge build",
+    "test": "forge test"
+  },
+  "devDependencies": {
+    "@openzeppelin/contracts": "5.4.0"
+  },
+  "license": "BUSL-1.1"
+}
