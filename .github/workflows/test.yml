@@ -30,5 +30,45 @@ jobs:
       - name: Build
         run: forge build --sizes
 
-      - name: Test
+      - name: Unit, fuzz and invariant tests (CI profile, more runs)
+        env:
+          FOUNDRY_PROFILE: ci
         run: forge test -vv
+
+      - name: Coverage summary
+        run: |
+          forge coverage --report summary --no-match-coverage "test|script" | tee coverage.txt
+          {
+            echo "## Test coverage of contracts/EtherHeirloom.sol"
+            echo
+            echo "| Lines | Statements | Branches | Functions |"
+            echo "|---|---|---|---|"
+            grep -E '^\| contracts/EtherHeirloom.sol' coverage.txt | awk -F'|' '{print "|"$3"|"$4"|"$5"|"$6"|"}'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  slither:
+    name: Slither static analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install OpenZeppelin Contracts
+        run: npm ci
+
+      - uses: foundry-rs/foundry-toolchain@v1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Slither
+        run: pip install slither-analyzer==0.11.6
+
+      - name: Run Slither (fails on any high-severity finding not explained in STATIC_ANALYSIS.md)
+        run: slither . --config-file slither.config.json

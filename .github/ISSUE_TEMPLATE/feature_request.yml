@@ -1,0 +1,20 @@
+name: Feature request
+description: Suggest a change for a future version of the contract or the tooling
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The deployed mainnet contract cannot change. Accepted ideas go into a future version.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
+    validations:
+      required: true

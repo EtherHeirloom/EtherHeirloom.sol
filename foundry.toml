@@ -12,3 +12,20 @@ remappings = [
     "@openzeppelin/=node_modules/@openzeppelin/",
     "forge-std/=lib/forge-std/src/",
 ]
+
+[fuzz]
+runs = 256
+
+[invariant]
+runs = 256
+depth = 500
+fail_on_revert = false
+
+# Used by CI: many more random inputs and action sequences
+[profile.ci.fuzz]
+runs = 5000
+
+[profile.ci.invariant]
+runs = 500
+depth = 500
+fail_on_revert = false

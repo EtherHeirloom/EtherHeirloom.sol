@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability (private)
+    url: https://github.com/EtherHeirloom/EtherHeirloom.sol/security/advisories/new
+    about: Please do not open a public issue for vulnerabilities. See SECURITY.md.
+  - name: Questions and ideas
+    url: https://github.com/EtherHeirloom/EtherHeirloom.sol/discussions
+    about: Ask how something works or share an idea in Discussions.
+  - name: Integration, licensing or partnership
+    url: https://github.com/EtherHeirloom/EtherHeirloom.sol/blob/main/INTEGRATION.md
+    about: Read the integration guide, then write to Ether-Heirloom@proton.me.

@@ -1,0 +1,36 @@
+name: Bug report
+description: Something in the contract or its tests does not behave as documented (not a security issue)
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For anything that could put tokens at risk, use **Security → Report a vulnerability** instead of a public issue.
+        Never post a private key or seed phrase.
+  - type: dropdown
+    id: network
+    attributes:
+      label: Network
+      options:
+        - Ethereum mainnet
+        - Sepolia testnet
+        - Local fork / tests only
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected and what happened instead.
+    validations:
+      required: true
+  - type: input
+    id: tx
+    attributes:
+      label: Transaction hash (if any)
+      placeholder: 0x...
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps or a Foundry test that reproduces it
+      render: solidity

@@ -10,7 +10,8 @@ Tokens stay in the owner's wallet. The owner sets beneficiaries with shares (bas
 - Mainnet contract: [`0x0E0A916f469200318c9c6442038D45857ff41AE0`](https://etherscan.io/address/0x0e0a916f469200318c9c6442038d45857ff41ae0#code) (verified source)
 - Sepolia testnet contract: [`0x2Db72e99E83005cA87CCd93F6FC1aa0C97a7Eb83`](https://sepolia.etherscan.io/address/0x2Db72e99E83005cA87CCd93F6FC1aa0C97a7Eb83)
 - Works inside [Safe](https://app.safe.global) as a custom Safe App: add `https://ether-heirloom.github.io/` under Apps → My custom apps.
-- Security reports: see [SECURITY.md](SECURITY.md).
+- Building on it (wallets, Safe tools, apps): see [INTEGRATION.md](INTEGRATION.md).
+- Security reports: see [SECURITY.md](SECURITY.md). Static analysis and test notes: [STATIC_ANALYSIS.md](STATIC_ANALYSIS.md).
 
 ## Contract facts
 
@@ -33,6 +34,8 @@ forge test
 
 Compiler settings match the mainnet deployment: Solidity 0.8.24, optimizer enabled with 500 runs, EVM `cancun`, no via-IR.
 
+The suite has unit tests, fuzz tests (random balances, shares, dates, fees and callers) and invariant tests (random sequences of real actions with rules checked after every step, such as "the contract never holds tokens" and "nothing is delivered before the date"). CI runs them with more iterations (`FOUNDRY_PROFILE=ci forge test`), prints a coverage summary and runs Slither. The contract has not been externally audited; see [STATIC_ANALYSIS.md](STATIC_ANALYSIS.md).
+
 ## License
 
-Business Source License 1.1, see [LICENSE](LICENSE).
+Business Source License 1.1, see [LICENSE](LICENSE). Reading, testing and non-production use are free. Running your own deployment of this code in production needs a commercial license until 2030-01-01, after which the code becomes GPL-2.0-or-later. Licensing: Ether-Heirloom@proton.me.
